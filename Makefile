@@ -9,4 +9,4 @@
 #    Updated: 2024/02/27 21:08:23 by shamsate         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
+https://github.dev/oustani-anas/CUB3D/blob/main/cub3D/parsing_cub/read_file.c
