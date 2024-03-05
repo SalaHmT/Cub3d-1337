@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:15:13 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/04 17:52:51 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/05 11:52:06 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ char	*duplicate_string(const char *src);
 char	*ft_strchr(char *str, int character);
 char	*ft_strjoin(char *first_string, char *second_string);
 int		ft_atoi( char *str);
+int		ft_isdigit(char *str);
 
 // *** Parssing/Map_Dependencies.c ***
 void	p_error(char *str);
