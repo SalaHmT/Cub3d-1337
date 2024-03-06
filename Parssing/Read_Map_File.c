@@ -6,13 +6,13 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:28:00 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/06 17:46:06 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/06 18:00:47 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/Cub3d.h"
 
-void	read_file_map(char *file, t_map *cub3d)
+void	read_file_(char *file, t_map *cub3d)
 {
 	int		fd;
 	char	*line;
