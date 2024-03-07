@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:03:38 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/06 17:26:45 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/07 11:39:23 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	right_check(char *line)
 	if (line[i] != '1')
 	{
 		printf("%s | %c \n", line, line[i]);
-		print_error("Error: Map not surrounded by walls :(");
+		p_error("Error: Map not surrounded by walls :(");
 	}
 }
 
@@ -101,10 +101,10 @@ void	surrounded_check(t_map *cub3d)
 void	map_check(char *line, t_map *cub3d)
 {
 	if (cub3d->c == -1 || cub3d->f == -1)
-		print_error("Error: Floor color not set :(");
+		p_error("Error: Floor color not set :(");
 	if (cub3d->no == NULL || cub3d->so == NULL
 		|| cub3d->we == NULL || cub3d->ea == NULL)
-		print_error("Error: Texture not set :(");
+		p_error("Error: Texture not set :(");
 	cub3d->map_y += 1;
 	if (ft_strlen(line) - 1 > cub3d->map_x)
 		cub3d->map_x = ft_strlen(line);

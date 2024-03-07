@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:15:13 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/06 17:46:47 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/07 11:30:31 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,17 @@ typedef struct s_map
 	int		f;// Floor color
 	int		map_x;// Map width
 	int		map_y;// Map height
-	int		pos_player;// Player position
+	char	pos_player;// Player position
 }				t_map;
 
 // *** Get_Next_Line ***
 char	*get_next_line(int fd);
+char	*get_ln(char *backup);
+char	*get_sv_and_fr(char *backup);
+char	*read_ln(int fd, char *backup);
+char	*ft_strchr_get(char *s, int c);
+size_t	ft_strlen_get(char *s);
+char	*ft_strjoin_l(char *s1, char *s2);
 
 // *** libft functions ***
 char	**ft_split(const char *str, char c);
@@ -48,6 +54,7 @@ char	*ft_strchr(char *str, int character);
 char	*ft_strjoin(char *first_string, char *second_string);
 int		ft_atoi( char *str);
 int		ft_isdigit(char *str);
+size_t	ft_strlcpy(char *dest, const char *src, size_t size);
 
 // *** Parssing/Map_Dependencies.c ***
 void	p_error(char *str);

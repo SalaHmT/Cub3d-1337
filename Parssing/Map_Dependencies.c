@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 21:44:32 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/04 18:08:44 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/07 11:45:13 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,24 @@ void	p_error(char *str)
 
 char	*trim_whitespace(char *line)
 {
+	char	*str;
 	int		i;
-	int		start;
-	int		end;
-	int		length;
-	char	*trimmed;
+	int		j;
 
-	while (line[start] == ' ' || line[start] == '\t')
-		start++;
-	while (end > start && \
-		(line[end] == ' ' || line[end] == '\t' || line[end] == '\n'))
-		end--;
-	length = end - start + 1;
-	trimmed = (char *)malloc(sizeof(char) * (length + 1));
 	i = 0;
-	while (start + i <= end)
+	j = 0;
+	str = malloc(sizeof(char) * (ft_strlen(line) + 1));
+	while (line[i] && line[i] != '\n')
 	{
-		trimmed[i] = line[start + i++];
+		if (line[i] != ' ')
+		{
+			str[j] = line[i];
+			j++;
+		}
+		i++;
 	}
-	trimmed[i] = '\0';
-	return (trimmed);
+	str[j] = '\0';
+	return (str);
 }
 
 int	count_string_array(char **str_array)

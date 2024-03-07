@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:31:33 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/06 17:26:20 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/07 10:54:27 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	struct_init(t_map *cub)
 	cub->so = NULL;
 	cub->we = NULL;
 	cub->ea = NULL;
-	cub->pos_player = 0;
+	cub->pos_player = '0';
 }
 
 //This function init_line initializes a specific row of a 2D array representing

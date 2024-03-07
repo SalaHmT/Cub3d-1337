@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:24:26 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/06 17:32:34 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/07 11:38:40 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,35 +20,6 @@ void	extension_check(char *str)
 	if (str[i] != 'b' || str[i - 1] != 'u' \
 	|| str[i - 2] != 'c' || str[i - 3] != '.')
 		p_error("Error \nWrong extension :(");
-}
-
-void	texture_color_check(t_map *cub3d, char *line)
-{
-	if (line[0] == '\0' || line[0] == '\n')
-		return ;
-	if (line[0] == 'N' && line[1] == 'O' && (line[2] == ' ' || line[2] == '\t'))
-		texture_check(line, cub3d);
-	else if (line[0] == 'S' && line[1] == 'O' && \
-		(line[2] == ' ' || line[2] == '\t'))
-		texture_check(line, cub3d);
-	else if (line[0] == 'W' && line[1] == 'E' && \
-		(line[2] == ' ' || line[2] == '\t'))
-		texture_check(line, cub3d);
-	else if (line[0] == 'E' && line[1] == 'A' && \
-		(line[2] == ' ' || line[2] == '\t'))
-		texture_check(line, cub3d);
-	else if (line[0] == 'F' && \
-		(line[1] == ' ' || line[1] == '\t'))
-		color_check(line, cub3d, 'F');
-	else if (line[0] == 'C' && \
-		(line[1] == ' ' || line[1] == '\t'))
-		color_check(line, cub3d, 'C');
-	else if (line[0] == '1')
-		map_init(line, cub3d);
-	else if (line[0] == '\0')
-		return ;
-	else
-		p_error("Error : Wrong format :(");
 }
 
 void	texture_init(t_map *cub3d, char *line, char *texture)
@@ -98,4 +69,33 @@ void	texture_check(char *line, t_map *cub3d)
 	texture_init(cub3d, line, texture[1]);
 	free(tmp);
 	free_string_array(texture);
+}
+
+void	texture_color_check(t_map *cub3d, char *line)
+{
+	if (line[0] == '\0' || line[0] == '\n')
+		return ;
+	if (line[0] == 'N' && line[1] == 'O' && (line[2] == ' ' || line[2] == '\t'))
+		texture_check(line, cub3d);
+	else if (line[0] == 'S' && line[1] == 'O' && \
+		(line[2] == ' ' || line[2] == '\t'))
+		texture_check(line, cub3d);
+	else if (line[0] == 'W' && line[1] == 'E' && \
+		(line[2] == ' ' || line[2] == '\t'))
+		texture_check(line, cub3d);
+	else if (line[0] == 'E' && line[1] == 'A' && \
+		(line[2] == ' ' || line[2] == '\t'))
+		texture_check(line, cub3d);
+	else if (line[0] == 'F' && \
+		(line[1] == ' ' || line[1] == '\t'))
+		color_check(line, 'F', cub3d);
+	else if (line[0] == 'C' && \
+		(line[1] == ' ' || line[1] == '\t'))
+		color_check(line, 'C', cub3d);
+	else if (line[0] == '1')
+		map_init(cub3d, line);
+	else if (line[0] == '\0')
+		return ;
+	else
+		p_error("Error : Wrong format :(");
 }

@@ -6,11 +6,11 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:05:01 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/06 17:07:50 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/07 11:34:43 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../Include/Cub3d.h"
 
 void	digit_color_check(char *str, t_map *cub3d, char type)
 {
@@ -34,7 +34,7 @@ void	digit_color_check(char *str, t_map *cub3d, char type)
 	else if (type == 'C')
 	{
 		if (cub3d->c != -1)
-			print_error("Error: C color already defined :(");
+			p_error("Error: C color already defined :(");
 		cub3d->c = (ft_atoi(color[0]) << 16) + (ft_atoi(color[1]) << 8) \
 			+ ft_atoi(color[2]);
 	}

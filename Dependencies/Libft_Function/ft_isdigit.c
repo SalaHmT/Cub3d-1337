@@ -6,11 +6,11 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:36:18 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/05 11:51:38 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/07 11:26:05 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3d.h"
+#include "../../Include/Cub3d.h"
 
 int	ft_isdigit(char *str)
 {

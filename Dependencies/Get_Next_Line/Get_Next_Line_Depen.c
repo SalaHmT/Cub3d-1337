@@ -6,13 +6,13 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:07:26 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/04 17:29:51 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/07 11:24:20 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3d.h"
+#include "../../Include/Cub3d.h"
 
-size_t	ft_strlen(char *s)
+size_t	ft_strlen_get(char *s)
 {
 	size_t	i;
 
@@ -22,7 +22,7 @@ size_t	ft_strlen(char *s)
 	return (i);
 }
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr_get(char *s, int c)
 {
 	int	i;
 

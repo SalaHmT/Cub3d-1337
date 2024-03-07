@@ -6,11 +6,11 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:26:47 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/04 17:28:13 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/07 11:26:02 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3d.h"
+#include "../../Include/Cub3d.h"
 
 int	ft_atoi(char *str)
 {

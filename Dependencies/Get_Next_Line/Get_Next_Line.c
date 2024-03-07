@@ -6,11 +6,11 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:07:29 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/04 17:29:22 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/07 11:21:24 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3d.h"
+#include "../../Include/Cub3d.h"
 
 char	*read_ln(int fd, char *backup)
 {

@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:28:00 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/06 18:00:47 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/07 11:46:32 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	read_file_(char *file, t_map *cub3d)
 	int		i;
 
 	i = 0;
-	init_struct(cub3d);
+	struct_init(cub3d);
 	fd = open(file, O_RDWR);
 	if (fd == -1)
 		p_error("Error: Can't open file");
@@ -29,7 +29,7 @@ void	read_file_(char *file, t_map *cub3d)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		line2 = skip_space(line);
+		line2 = space_skip(line);
 		texture_color_check(cub3d, line2);
 		free(line);
 	}
