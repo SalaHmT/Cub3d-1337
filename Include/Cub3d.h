@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osabir <osabir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:15:13 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 12:27:24 by osabir           ###   ########.fr       */
+/*   Updated: 2024/03/07 19:24:50 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	extension_check(char *str);
 void	texture_color_check(t_map **cub3d, char *line);
 void	texture_init(t_map **cub3d, char *line, char *texture);
 void	texture_check(char *line, t_map **cub3d);
+char 	*removeLeadingAndTrailingSpaces(char *input);
 // *** Parssing/Check_Map_Color.c ***
 void	digit_color_check(char *str, t_map **cub3d, char type);
 void	color_check(char *line, char type, t_map **cub3d);

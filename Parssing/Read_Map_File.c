@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Read_Map_File.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osabir <osabir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:28:00 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 12:25:33 by osabir           ###   ########.fr       */
+/*   Updated: 2024/03/07 19:21:54 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void	read_file_map(char *file, t_map **cub3d)
 	int		fd;
 	char	*line;
 	char	*line2;
-	int		i;
 
-	i = 0;
 	struct_init(cub3d);
 	fd = open(file, O_RDWR);
 	if (fd == -1)

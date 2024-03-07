@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Check_Map_texture.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osabir <osabir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:24:26 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 12:30:50 by osabir           ###   ########.fr       */
+/*   Updated: 2024/03/07 19:25:06 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	extension_check(char *str)
 	i = ft_strlen(str) - 1;
 	if (str[i] != 'b' || str[i - 1] != 'u' \
 	|| str[i - 2] != 'c' || str[i - 3] != '.')
-		p_error("Error \nWrong extension :(");
+		p_error("Error \nWrong extension :(\n");
 }
 
 void	texture_init(t_map **cub3d, char *line, char *texture)
@@ -52,12 +52,10 @@ void	texture_init(t_map **cub3d, char *line, char *texture)
 
 void	texture_check(char *line, t_map **cub3d)
 {
-	int		i;
 	char	**texture;
 	char	*tmp;
 
-	i = 0;
-	tmp = trim_whitespace(line);
+	tmp = removeLeadingAndTrailingSpaces(line);
 	if (line[2] != ' ')
 		texture = ft_split(tmp, '\t');
 	else
@@ -98,4 +96,36 @@ void	texture_color_check(t_map **cub3d, char *line)
 		return ;
 	else
 		p_error("Error : Wrong format :(");
+}
+char *removeLeadingAndTrailingSpaces(char *input)
+{
+    int 	startIndex;
+    int 	endIndex;
+    int		length;
+    char	*result;
+	int 	i;
+
+	startIndex = 0;
+	endIndex = 0;
+	length = 0;
+	result = NULL;
+    while (input[startIndex] == ' ' || input[startIndex] == '\t')
+        startIndex++;
+    length = ft_strlen(input);
+    endIndex = length - 1;
+    while (endIndex >= 0 && (input[endIndex] == ' ' || input[endIndex] == '\t'))
+        endIndex--;
+    int trimmedLength = endIndex - startIndex + 1;
+    result = (char *)malloc(sizeof(char) * (trimmedLength + 1));
+
+    if (result != NULL)
+	{
+		i = 0;
+        while (i < trimmedLength) {
+            result[i] = input[startIndex + i];
+            i++;
+        }
+        result[trimmedLength] = '\0';
+    }
+    return (result);
 }

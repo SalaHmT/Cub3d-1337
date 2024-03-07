@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Check_Map_Color.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osabir <osabir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:05:01 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 12:29:34 by osabir           ###   ########.fr       */
+/*   Updated: 2024/03/07 19:21:19 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,7 @@
 void	digit_color_check(char *str, t_map **cub3d, char type)
 {
 	char	**color;
-	int		i;
 
-	i = 0;
 	color = ft_split(str, ',');
 	if (color[0] == NULL || color[1] == NULL || color[2] == NULL)
 		p_error("Error: Wrong format :(");

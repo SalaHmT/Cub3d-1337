@@ -6,7 +6,7 @@
 /*   By: osabir <osabir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:31:33 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 12:33:19 by osabir           ###   ########.fr       */
+/*   Updated: 2024/03/07 12:45:50 by osabir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 //This function initializes the t_map structure with default values.
 void	struct_init(t_map **cub)
 {
+	(*cub) = malloc(sizeof(t_map));
 	(*cub)->map = NULL;
 	(*cub)->map_y = 0;
 	(*cub)->map_x = 0;
