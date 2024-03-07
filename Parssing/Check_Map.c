@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Check_Map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: osabir <osabir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:03:38 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 11:39:23 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/07 12:31:30 by osabir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,26 +65,26 @@ void	line_check(char *line)
 	}
 }
 
-void	surrounded_check(t_map *cub3d)
+void	surrounded_check(t_map **cub3d)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < cub3d->map_y)
+	while (i < (*cub3d)->map_y)
 	{
 		j = 0;
-		while (j < cub3d->map_x && cub3d->map[i][j] != '\0')
+		while (j < (*cub3d)->map_x && (*cub3d)->map[i][j] != '\0')
 		{
-			if (cub3d->map[i][j] == ' ')
+			if ((*cub3d)->map[i][j] == ' ')
 			{
-				if (i != 0 && cub3d->map[i - 1][j] == '0')
+				if (i != 0 && (*cub3d)->map[i - 1][j] == '0')
 					p_error("Error: Map not surrounded by walls :(");
-				if (i != cub3d->map_y - 1 && cub3d->map[i + 1][j] == '0')
+				if (i != (*cub3d)->map_y - 1 && (*cub3d)->map[i + 1][j] == '0')
 					p_error("Error: Map not surrounded by walls :(");
-				if (j != 0 && cub3d->map[i][j - 1] == '0')
+				if (j != 0 && (*cub3d)->map[i][j - 1] == '0')
 					p_error("Error: Map not surrounded by walls :(");
-				if (cub3d->map[i][j + 1] == '0')
+				if ((*cub3d)->map[i][j + 1] == '0')
 					p_error("Error: Map not surrounded by walls :(");
 			}
 			j++;
@@ -98,14 +98,14 @@ void	surrounded_check(t_map *cub3d)
 // and updates the map width if the current line'slength (excluding newline
 //character)is greater than the current map width. If any condition
 //is met, it prints an error message accordingly.
-void	map_check(char *line, t_map *cub3d)
+void	map_check(char *line, t_map **cub3d)
 {
-	if (cub3d->c == -1 || cub3d->f == -1)
+	if ((*cub3d)->c == -1 || (*cub3d)->f == -1)
 		p_error("Error: Floor color not set :(");
-	if (cub3d->no == NULL || cub3d->so == NULL
-		|| cub3d->we == NULL || cub3d->ea == NULL)
+	if ((*cub3d)->no == NULL || (*cub3d)->so == NULL
+		|| (*cub3d)->we == NULL || (*cub3d)->ea == NULL)
 		p_error("Error: Texture not set :(");
-	cub3d->map_y += 1;
-	if (ft_strlen(line) - 1 > cub3d->map_x)
-		cub3d->map_x = ft_strlen(line);
+	(*cub3d)->map_y += 1;
+	if (ft_strlen(line) - 1 > (*cub3d)->map_x)
+		(*cub3d)->map_x = ft_strlen(line);
 }

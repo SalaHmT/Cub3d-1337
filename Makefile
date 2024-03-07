@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+         #
+#    By: osabir <osabir@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/27 21:08:21 by shamsate          #+#    #+#              #
-#    Updated: 2024/03/07 11:54:48 by shamsate         ###   ########.fr        #
+#    Updated: 2024/03/07 12:10:20 by osabir           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ FILES = main  \
 		Dependencies/Libft_Function/ft_split Dependencies/Libft_Function/ft_strjoin \
 		Parssing/Check_Map_Color Parssing/Check_Map_texture Parssing/Check_Map \
 		Parssing/Map_Dependencies Parssing/Map_Init Parssing/Player_Init \
-		Parssing/Read_Map_File
+		Parssing/Read_Map_File Dependencies/Get_Next_Line/Get_Next_Line_Depen \
+		Dependencies/Libft_Function/ft_strlcpy
 
 SRC		= $(FILES:=.c)
 OBJ		= $(FILES:=.o)
@@ -38,7 +39,7 @@ all :   $(NAME)
 
 $(NAME): $(OBJ) $(INCLUDE)
 		@echo "  - Compilation Starting $(NAME)..\n"
-		@ $(CC) $(OBJ) $(NAME)
+		@ $(CC) -o $(NAME) $(OBJ)
 		@echo " - Execution ready..\n"
 
 %.o: %.c $(INCLUDE)
