@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:15:13 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/08 11:42:24 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/08 12:16:13 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ typedef struct s_map
 
 // *** Get_Next_Line ***
 char	*get_next_line(int fd);
-char	*ft_re(char *r);
-char	*ft_get_line(int fd, char *r);
-char	*read_line(char *r);
+char	*ft_re(char *str);
+char	*ft_get_ln(int fd, char *str);
+char	*read_ln(char *str);
 
 
 // *** libft functions ***

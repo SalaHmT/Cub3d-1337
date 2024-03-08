@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: osabir <osabir@student.42.fr>              +#+  +:+       +#+         #
+#    By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/27 21:08:21 by shamsate          #+#    #+#              #
-#    Updated: 2024/03/08 11:25:00 by osabir           ###   ########.fr        #
+#    Updated: 2024/03/08 12:34:31 by shamsate         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLUDE = Include/Cub3d.h
 
 
 CFLAGS	= -Wall -Wextra -Werror
-CC = cc -fsanitize=address 
+CC = cc  -fsanitize=address
 RM = rm -Rf
 
 
@@ -28,8 +28,7 @@ FILES = main  \
 		Dependencies/Libft_Function/ft_split Dependencies/Libft_Function/ft_strjoin \
 		Parssing/Check_Map_Color Parssing/Check_Map_texture Parssing/Check_Map \
 		Parssing/Map_Dependencies Parssing/Map_Init Parssing/Player_Init \
-		Parssing/Read_Map_File Dependencies/Get_Next_Line/Get_Next_Line_Depen \
-		Dependencies/Libft_Function/ft_strlcpy
+		Parssing/Read_Map_File Dependencies/Libft_Function/ft_strlcpy
 
 SRC		= $(FILES:=.c)
 OBJ		= $(FILES:=.o)

@@ -6,62 +6,62 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:07:29 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/08 11:36:30 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/08 12:19:09 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Include/Cub3d.h"
 
-char	*ft_get_line(int fd, char *r)
+char	*ft_get_ln(int fd, char *str)
 {
 	char	*buff;
-	int		bytes_read;
+	int		b_read;
 
 	buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	bytes_read = 1;
-	while (!ft_strchr(r, '\n') && bytes_read)
+	b_read = 1;
+	while (!ft_strchr(str, '\n') && b_read)
 	{
-		bytes_read = read(fd, buff, BUFFER_SIZE);
-		if (bytes_read == -1)
+		b_read = read(fd, buff, BUFFER_SIZE);
+		if (b_read == -1)
 		{
 			free (buff);
 			return (0);
 		}
-		buff[bytes_read] = '\0';
-		r = ft_strjoin(r, buff);
+		buff[b_read] = '\0';
+		str = ft_strjoin(str, buff);
 	}
 	free (buff);
-	return (r);
+	return (str);
 }
 
-char	*read_line(char *r)
+char	*read_ln(char *str)
 {
 	int		i;
-	char	*line;
+	char	*ln;
 
 	i = 0;
-	if (!r[i])
+	if (!str[i])
 		return (0);
-	while (r[i] != '\n' && r[i])
+	while (str[i] != '\n' && str[i])
 		i++;
-	if (r[i] == '\n')
+	if (str[i] == '\n')
 		i++;
-	line = (char *)malloc(sizeof(char) * (i + 1));
-	if (!line)
+	ln = (char *)malloc(sizeof(char) * (i + 1));
+	if (!ln)
 		return (0);
 	i = -1;
-	while (r[++i] && r[i] != '\n')
-		line[i] = r[i];
-	if (r[i] == '\n')
+	while (str[++i] && str[i] != '\n')
+		ln[i] = str[i];
+	if (str[i] == '\n')
 	{
-		line[i] = r[i];
+		ln[i] = str[i];
 		i++;
 	}
-	line[i] = '\0';
-	return (line);
+	ln[i] = '\0';
+	return (ln);
 }
 
-char	*ft_re(char *r)
+char	*ft_re(char *str)
 {
 	int		i;
 	int		j;
@@ -70,36 +70,36 @@ char	*ft_re(char *r)
 
 	i = 0;
 	j = 0;
-	while (r[i] != '\n' && r[i])
+	while (str[i] != '\n' && str[i])
 		i++;
-	if (!r[i])
+	if (!str[i])
 	{
-		free (r);
+		free (str);
 		return (0);
 	}
-	h = (ft_strlen(r) - i);
+	h = (ft_strlen(str) - i);
 	p = (char *)malloc(sizeof(char) * (h + 1));
 	if (!p)
 		return (0);
 	i++;
-	while (r[i])
-		p[j++] = r[i++];
+	while (str[i])
+		p[j++] = str[i++];
 	p[j] = '\0';
-	free (r);
+	free (str);
 	return (p);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*r;
-	char		*line;
+	static char	*str;
+	char		*ln;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	r = ft_get_line(fd, r);
-	if (r == NULL)
+	str = ft_get_ln(fd, str);
+	if (str == NULL)
 		return (NULL);
-	line = read_line(r);
-	r = ft_re(r);
-	return (line);
+	ln = read_ln(str);
+	str = ft_re(str);
+	return (ln);
 }

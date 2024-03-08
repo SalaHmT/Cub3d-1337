@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:17:52 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 11:32:05 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/08 11:57:53 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,4 @@ char	*ft_strjoin(char *first_string, char *second_string)
 	free(first_string);
 	return (result);
 }
+
