@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Check_Map_texture.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: osabir <osabir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:24:26 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/08 00:37:19 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/08 10:56:04 by osabir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,25 @@ void	texture_init(t_map **cub3d, char *line, char *texture)
 	if (line[0] == 'N' && line[1] == 'O')
 	{
 		if ((*cub3d)->no != NULL)
-			p_error("Error: NO texture already defined :(");
+			p_error("Error: NO texture already defined :(\n");
 		((*cub3d))->no = duplicate_string(texture);
 	}
 	else if (line[0] == 'S' && line[1] == 'O')
 	{
 		if (((*cub3d))->so != NULL)
-			p_error("Error: SO texture already defined :(");
+			p_error("Error: SO texture already defined :(\n");
 		((*cub3d))->so = duplicate_string(texture);
 	}
 	else if (line[0] == 'W' && line[1] == 'E')
 	{
 		if (((*cub3d))->we != NULL)
-			p_error("Error: WE texture already defined :(");
+			p_error("Error: WE texture already defined :(\n");
 		((*cub3d))->we = duplicate_string(texture);
 	}
 	else if (line[0] == 'E' && line[1] == 'A')
 	{
 		if (((*cub3d))->ea != NULL)
-			p_error("Error: EA texture already defined :(");
+			p_error("Error: EA texture already defined :(\n");
 		((*cub3d))->ea = duplicate_string(texture);
 	}
 }
@@ -61,12 +61,12 @@ void	texture_check(char *line, t_map **cub3d)
 	else
 		texture = ft_split(tmp, ' ');
 	if (count_string_array(texture) != 2)
-		p_error("Error : texture format is wrong :(");
-	printf("texture[0] = %s\n", texture[0]);
-	printf("texture[1] = %s\n", texture[1]);
+		p_error("Error : texture format is wrong :(\n");
+	// printf("texture[0] = %s\n", texture[0]);
+	// printf("texture[1] = %s\n", texture[1]);
 	if (access(texture[1], F_OK) == -1)
 	{
-		printf("Error : texture file not found :(");
+		printf("Error : texture file not found :(\n");
 		p_error(texture[1]);
 	}
 	texture_init(cub3d, line, texture[1]);
@@ -100,7 +100,7 @@ void	texture_color_check(t_map **cub3d, char *line)
 	else if (line[0] == '\0')
 		return ;
 	else
-		p_error("Error : Wrong format :(");
+		p_error("Error : Wrong format :(\n");
 }
 char *removeLeadingAndTrailingSpaces(char *line)
 {

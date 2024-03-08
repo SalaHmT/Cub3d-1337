@@ -6,7 +6,7 @@
 /*   By: osabir <osabir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:23:04 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 12:33:44 by osabir           ###   ########.fr       */
+/*   Updated: 2024/03/08 10:46:32 by osabir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	player_init(t_map **cub3d)
 				|| (*cub3d)->map[i][j] == 'E' || (*cub3d)->map[i][j] == 'W')
 			{
 				if ((*cub3d)->pos_player != '0')
-					p_error("Error: More than one player found in the map :(");
+					p_error("Error: More than one player found in the map :(\n");
 				(*cub3d)->pos_player = (*cub3d)->map[i][j];
 			}
 			j++;
@@ -39,5 +39,5 @@ void	player_init(t_map **cub3d)
 		i++;
 	}
 	if ((*cub3d)->pos_player == '0')
-		p_error("Error: Player not found in the map :(");
+		p_error("Error: Player not found in the map :(\n");
 }

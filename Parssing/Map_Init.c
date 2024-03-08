@@ -6,7 +6,7 @@
 /*   By: osabir <osabir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:31:33 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 12:45:50 by osabir           ###   ########.fr       */
+/*   Updated: 2024/03/08 10:46:16 by osabir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	check_the_first_last_c(char *line)
 	while (line[i] != '\0' && line[i] != '\n')
 	{
 		if (line[i] != '1' && line[i] != ' ')
-			p_error("Error: map is not surrounded by walls :(");
+			p_error("Error: map is not surrounded by walls :(\n");
 		i++;
 	}
 }
@@ -90,7 +90,7 @@ void	map_init(t_map **cub3d, char *file)
 		if (!line)
 			break ;
 		if (ft_strlen(line) == 1 && line[0] == '\n' && i > 0)
-			p_error("Error: Empty line in the map :(");
+			p_error("Error: Empty line in the map :(\n");
 		if (space_skip(line)[0] == '1')
 		{
 			line_check(line);
@@ -98,7 +98,7 @@ void	map_init(t_map **cub3d, char *file)
 		}
 		else if ((space_skip(line)[0] == '\0' || \
 			space_skip(line)[0] == '\n') && i > 0)
-			p_error("Error: Map not surrounded by walls :(");
+			p_error("Error: Map not surrounded by walls :(\n");
 		free(line);
 	}
 	all_fun_check((cub3d), fd);

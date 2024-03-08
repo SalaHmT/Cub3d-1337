@@ -6,44 +6,100 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:07:29 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 11:21:24 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/08 11:36:30 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Include/Cub3d.h"
 
-char	*read_ln(int fd, char *backup)
+char	*ft_get_line(int fd, char *r)
 {
-	char	*str;
-	int		count;
+	char	*buff;
+	int		bytes_read;
 
-	str = malloc(BUFFER_SIZE + 1 * sizeof(char ));
-	if (!str)
-		return (str);
-	count = 1;
-	while (!ft_strchr(backup, '\n') && count != 0)
+	buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
+	bytes_read = 1;
+	while (!ft_strchr(r, '\n') && bytes_read)
 	{
-		count = read(fd, str, BUFFER_SIZE);
-		if (count == -1)
-			return (free(str), free(backup), NULL);
-		str[count] = '\0';
-		backup = ft_strjoin_l(backup, str);
+		bytes_read = read(fd, buff, BUFFER_SIZE);
+		if (bytes_read == -1)
+		{
+			free (buff);
+			return (0);
+		}
+		buff[bytes_read] = '\0';
+		r = ft_strjoin(r, buff);
 	}
-	return (free(str), backup);
+	free (buff);
+	return (r);
+}
+
+char	*read_line(char *r)
+{
+	int		i;
+	char	*line;
+
+	i = 0;
+	if (!r[i])
+		return (0);
+	while (r[i] != '\n' && r[i])
+		i++;
+	if (r[i] == '\n')
+		i++;
+	line = (char *)malloc(sizeof(char) * (i + 1));
+	if (!line)
+		return (0);
+	i = -1;
+	while (r[++i] && r[i] != '\n')
+		line[i] = r[i];
+	if (r[i] == '\n')
+	{
+		line[i] = r[i];
+		i++;
+	}
+	line[i] = '\0';
+	return (line);
+}
+
+char	*ft_re(char *r)
+{
+	int		i;
+	int		j;
+	int		h;
+	char	*p;
+
+	i = 0;
+	j = 0;
+	while (r[i] != '\n' && r[i])
+		i++;
+	if (!r[i])
+	{
+		free (r);
+		return (0);
+	}
+	h = (ft_strlen(r) - i);
+	p = (char *)malloc(sizeof(char) * (h + 1));
+	if (!p)
+		return (0);
+	i++;
+	while (r[i])
+		p[j++] = r[i++];
+	p[j] = '\0';
+	free (r);
+	return (p);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*backup;
-	char		*final;
+	static char	*r;
+	char		*line;
 
-	if (fd < 0 || fd == 1 || fd == 2 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (0);
+	r = ft_get_line(fd, r);
+	if (r == NULL)
 		return (NULL);
-	final = 0;
-	backup = read_ln(fd, backup);
-	if (!backup)
-		return (backup);
-	final = get_ln(backup);
-	backup = get_sv_and_fr(backup);
-	return (final);
+	line = read_line(r);
+	r = ft_re(r);
+	return (line);
 }

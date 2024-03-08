@@ -6,7 +6,7 @@
 #    By: osabir <osabir@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/27 21:08:21 by shamsate          #+#    #+#              #
-#    Updated: 2024/03/07 12:10:20 by osabir           ###   ########.fr        #
+#    Updated: 2024/03/08 11:25:00 by osabir           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLUDE = Include/Cub3d.h
 
 
 CFLAGS	= -Wall -Wextra -Werror
-CC = cc
+CC = cc -fsanitize=address 
 RM = rm -Rf
 
 

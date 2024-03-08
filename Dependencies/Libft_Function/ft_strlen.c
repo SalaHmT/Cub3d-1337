@@ -6,20 +6,22 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 21:18:14 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 11:26:23 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/08 11:42:01 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../Include/Cub3d.h"
 
-int	ft_strlen(const char *s)
+int	ft_strlen(char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	if (!s)
 		return (0);
-	while (s[i])
+	while (s[i] != '\0')
+	{
 		i++;
+	}
 	return (i);
 }
