@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:05:01 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 19:21:19 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/08 00:53:56 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	color_check(char *line, char type, t_map **cub3d)
 		i++;
 	}
 	if (j != 2)
-		p_error("Error: too many commas in color :(");
+		p_error("Error:  commas is not 2 ',' in color :(");
 	digit_color_check(tmp + 1, cub3d, type);
 	free(tmp);
 	free_string_array(col);

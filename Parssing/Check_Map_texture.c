@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:24:26 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 19:25:06 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/08 00:37:19 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,13 @@ void	texture_check(char *line, t_map **cub3d)
 		texture = ft_split(tmp, ' ');
 	if (count_string_array(texture) != 2)
 		p_error("Error : texture format is wrong :(");
+	printf("texture[0] = %s\n", texture[0]);
+	printf("texture[1] = %s\n", texture[1]);
 	if (access(texture[1], F_OK) == -1)
+	{
+		printf("Error : texture file not found :(");
 		p_error(texture[1]);
+	}
 	texture_init(cub3d, line, texture[1]);
 	free(tmp);
 	free_string_array(texture);
@@ -91,41 +96,29 @@ void	texture_color_check(t_map **cub3d, char *line)
 		(line[1] == ' ' || line[1] == '\t'))
 		color_check(line, 'C', cub3d);
 	else if (line[0] == '1')
-		map_init(cub3d, line);
+		map_check(line, cub3d);
 	else if (line[0] == '\0')
 		return ;
 	else
 		p_error("Error : Wrong format :(");
 }
-char *removeLeadingAndTrailingSpaces(char *input)
+char *removeLeadingAndTrailingSpaces(char *line)
 {
-    int 	startIndex;
-    int 	endIndex;
-    int		length;
-    char	*result;
-	int 	i;
+	int		i;
+	int		j;
+	int		k;
+	char	*tmp;
 
-	startIndex = 0;
-	endIndex = 0;
-	length = 0;
-	result = NULL;
-    while (input[startIndex] == ' ' || input[startIndex] == '\t')
-        startIndex++;
-    length = ft_strlen(input);
-    endIndex = length - 1;
-    while (endIndex >= 0 && (input[endIndex] == ' ' || input[endIndex] == '\t'))
-        endIndex--;
-    int trimmedLength = endIndex - startIndex + 1;
-    result = (char *)malloc(sizeof(char) * (trimmedLength + 1));
-
-    if (result != NULL)
-	{
-		i = 0;
-        while (i < trimmedLength) {
-            result[i] = input[startIndex + i];
-            i++;
-        }
-        result[trimmedLength] = '\0';
-    }
-    return (result);
+	i = 0;
+	j = ft_strlen(line) - 2;
+	while (line[i] == ' ' || line[i] == '\t')
+		i++;
+	while (line[j] == ' ' || line[j] == '\t')
+		j--;
+	tmp = malloc(sizeof(char) * (j - i + 2));
+	k = 0;
+	while (i <= j && line[i] != '\n')
+		tmp[k++] = line[i++];
+	tmp[k] = '\0';
+	return (tmp);
 }

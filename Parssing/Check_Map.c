@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Check_Map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osabir <osabir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:03:38 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 12:31:30 by osabir           ###   ########.fr       */
+/*   Updated: 2024/03/08 01:10:03 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	right_check(char *line)
 	i = 0;
 	while (line[i] != '\0' && line[i] != '\n')
 		i++;
+	i--;
 	while (line[i] == ' ')
 		i--;
 	if (line[i] != '1')
