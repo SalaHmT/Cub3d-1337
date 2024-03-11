@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 21:47:07 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/08 12:00:15 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/08 13:45:26 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,9 @@ char	*duplicate_string(const char *src)
 	i = 0;
 	while (src[i] != '\0')
 	{
-		dest[i] =  (char) src[i];
+		dest[i] = (char)src[i];
 		i++;
 	}
 	dest[length] = '\0';
 	return (dest);
 }
-

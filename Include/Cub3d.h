@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:15:13 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/08 12:16:13 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:37:19 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,30 +62,30 @@ int		count_string_array(char **str_array);
 void	free_string_array(char **str_array);
 
 // *** Parssing/Map_Init.c ***
-void	struct_init(t_map **cub);
-void	initialize_map_line(char *line, t_map **cub, int row);
+void	struct_init(t_map *cub);
+void	initialize_map_line(char *line, t_map *cub, int row);
 void	the_first_last_check(char *line);
-void	all_fun_check(t_map **cub3d, int fd);
-void	map_init(t_map **cub3d, char *file);
+void	all_fun_check(t_map *cub3d, int fd);
+void	map_init(t_map *cub3d, char *file);
 
 // *** Parssing/Player_init.c ***
-void	player_init(t_map **cub3d);
+void	player_init(t_map *cub3d);
 // *** Parssing/Check_Map_texture.c ***
 void	extension_check(char *str);
-void	texture_color_check(t_map **cub3d, char *line);
-void	texture_init(t_map **cub3d, char *line, char *texture);
-void	texture_check(char *line, t_map **cub3d);
-char 	*removeLeadingAndTrailingSpaces(char *input);
+void	texture_color_check(t_map *cub3d, char *line);
+void	texture_init(t_map *cub3d, char *line, char *texture);
+void	texture_check(char *line, t_map *cub3d);
+char	*remove_leading_and_trailing_spaces(char *input);
 // *** Parssing/Check_Map_Color.c ***
-void	digit_color_check(char *str, t_map **cub3d, char type);
-void	color_check(char *line, char type, t_map **cub3d);
+void	digit_color_check(char *str, t_map *cub3d, char type);
+void	color_check(char *line, char type, t_map *cub3d);
 // *** Parssing/Check_Map.c ***
 void	right_check(char *line);
 void	left_check(char *line);
-void	surrounded_check(t_map **cub3d);
+void	surrounded_check(t_map *cub3d);
 void	line_check(char *line);
-void	map_check(char *line, t_map **cub3d);
+void	map_check(char *line, t_map *cub3d);
 // *** Parssing/Read_Map_File.c ***
-void	read_file_map(char *file, t_map **cub3d);
+void	read_file_map(char *file, t_map *cub3d);
 
 #endif

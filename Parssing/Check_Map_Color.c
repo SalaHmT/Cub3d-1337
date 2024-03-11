@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Check_Map_Color.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osabir <osabir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:05:01 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/08 10:44:01 by osabir           ###   ########.fr       */
+/*   Updated: 2024/03/11 12:11:12 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/Cub3d.h"
 
-void	digit_color_check(char *str, t_map **cub3d, char type)
+void	digit_color_check(char *str, t_map *cub3d, char type)
 {
 	char	**color;
 
@@ -24,16 +24,16 @@ void	digit_color_check(char *str, t_map **cub3d, char type)
 		p_error("Error: Wrong format :(\n");
 	if (type == 'F')
 	{
-		if ((*cub3d)->f != -1)
+		if (cub3d->f != -1)
 			p_error("Error: F color already defined :(\n");
-		(*cub3d)->f = (ft_atoi(color[0]) << 16) + (ft_atoi(color[1]) << 8) \
+		cub3d->f = (ft_atoi(color[0]) << 16) + (ft_atoi(color[1]) << 8) \
 			+ ft_atoi(color[2]);
 	}
 	else if (type == 'C')
 	{
-		if ((*cub3d)->c != -1)
+		if (cub3d->c != -1)
 			p_error("Error: C color already defined :(\n");
-		(*cub3d)->c = (ft_atoi(color[0]) << 16) + (ft_atoi(color[1]) << 8) \
+		cub3d->c = (ft_atoi(color[0]) << 16) + (ft_atoi(color[1]) << 8) \
 			+ ft_atoi(color[2]);
 	}
 	free_string_array(color);
@@ -42,7 +42,7 @@ void	digit_color_check(char *str, t_map **cub3d, char type)
 //This function check_color is responsible for verifying
 // the validity of a color specification in a given line of a map file.
 
-void	color_check(char *line, char type, t_map **cub3d)
+void	color_check(char *line, char type, t_map *cub3d)
 {
 	int		i;
 	int		j;

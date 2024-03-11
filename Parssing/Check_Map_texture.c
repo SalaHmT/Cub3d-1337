@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Check_Map_texture.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osabir <osabir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:24:26 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/08 10:56:04 by osabir           ###   ########.fr       */
+/*   Updated: 2024/03/11 12:28:52 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,40 +22,40 @@ void	extension_check(char *str)
 		p_error("Error \nWrong extension :(\n");
 }
 
-void	texture_init(t_map **cub3d, char *line, char *texture)
+void	texture_init(t_map *cub3d, char *line, char *texture)
 {
 	if (line[0] == 'N' && line[1] == 'O')
 	{
-		if ((*cub3d)->no != NULL)
+		if (cub3d->no != NULL)
 			p_error("Error: NO texture already defined :(\n");
-		((*cub3d))->no = duplicate_string(texture);
+		cub3d->no = duplicate_string(texture);
 	}
 	else if (line[0] == 'S' && line[1] == 'O')
 	{
-		if (((*cub3d))->so != NULL)
+		if (cub3d->so != NULL)
 			p_error("Error: SO texture already defined :(\n");
-		((*cub3d))->so = duplicate_string(texture);
+		cub3d->so = duplicate_string(texture);
 	}
 	else if (line[0] == 'W' && line[1] == 'E')
 	{
-		if (((*cub3d))->we != NULL)
+		if (cub3d->we != NULL)
 			p_error("Error: WE texture already defined :(\n");
-		((*cub3d))->we = duplicate_string(texture);
+		cub3d->we = duplicate_string(texture);
 	}
 	else if (line[0] == 'E' && line[1] == 'A')
 	{
-		if (((*cub3d))->ea != NULL)
+		if (cub3d->ea != NULL)
 			p_error("Error: EA texture already defined :(\n");
-		((*cub3d))->ea = duplicate_string(texture);
+		cub3d->ea = duplicate_string(texture);
 	}
 }
 
-void	texture_check(char *line, t_map **cub3d)
+void	texture_check(char *line, t_map *cub3d)
 {
 	char	**texture;
 	char	*tmp;
 
-	tmp = removeLeadingAndTrailingSpaces(line);
+	tmp = remove_leading_and_trailing_spaces(line);
 	if (line[2] != ' ')
 		texture = ft_split(tmp, '\t');
 	else
@@ -74,7 +74,7 @@ void	texture_check(char *line, t_map **cub3d)
 	free_string_array(texture);
 }
 
-void	texture_color_check(t_map **cub3d, char *line)
+void	texture_color_check(t_map *cub3d, char *line)
 {
 	if (line[0] == '\0' || line[0] == '\n')
 		return ;
@@ -102,7 +102,8 @@ void	texture_color_check(t_map **cub3d, char *line)
 	else
 		p_error("Error : Wrong format :(\n");
 }
-char *removeLeadingAndTrailingSpaces(char *line)
+
+char	*remove_leading_and_trailing_spaces(char *line)
 {
 	int		i;
 	int		j;
