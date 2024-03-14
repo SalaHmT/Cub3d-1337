@@ -6,11 +6,28 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:03:38 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/13 22:21:55 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/14 23:24:47 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/Cub3d.h"
+
+void	line_check(char *line)
+{
+	int	i;
+
+	i = 0;
+	left_check(line);
+	right_check(line);
+	while (line[i] != '\0' && line[i] != '\n')
+	{
+		if (line[i] != '1' && line[i] != '0' && line[i] != '2'
+			&& line[i] != 'W' && line[i] != 'E' && line[i] != 'S'
+			&& line[i] != 'N' && line[i] != ' ')
+			p_error("Error : Wrong character in the map");
+		i++;
+	}
+}
 
 //first iterates to the end of the line, then moves backwards
 //to find the last non-space character. Finally, it checks
@@ -39,28 +56,6 @@ void	left_check(char *line)
 		i++;
 	if (line[i] != '1' || line[i] == '\0' || line[i] == '\n')
 		p_error("Error: Map not surrounded by walls :(\n");
-}
-
-// checks the left and right sides of the line
-//using the previously defined functions check_left and check_right,
-//and then iterates over each character in the line to check
-//if it's valid. If any invalid character is found, it prints
-// an error message accordingly.
-void	line_check(char *line)
-{
-	int	i;
-
-	i = 0;
-	left_check(line);
-	right_check(line);
-	while (line[i] != '\0' && line[i] != '\n')
-	{
-		if (line[i] != '0' && line[i] != '1' && line[i] != '2'
-			&& line[i] != 'N' && line[i] != 'S' && line[i] != 'E'
-			&& line[i] != 'W' && line[i] != ' ')
-			p_error("Error: Wrong character in the map :(");
-		i++;
-	}
 }
 
 void	surrounded_check(t_map *cub3d)

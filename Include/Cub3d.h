@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:15:13 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/14 01:36:55 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/14 23:27:24 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*ft_re(char *str);
 char	*ft_get_ln(int fd, char *str);
 char	*read_ln(char *str);
 // *** libft functions ***
-char	**ft_split(const char *str, char c);
+char	**ft_split(const char *s, char c);
 int		ft_strlen(char *s);
 char	*duplicate_string(const char *src);
 char	*ft_strchr(char *str, int character);
@@ -60,7 +60,8 @@ char	*space_skip(char *ln);
 char	*trim_whitespace(char *line);
 int		count_string_array(char **str_array);
 void	free_string_array(char **str_array);
-
+// *** Parssing/Read_Map_File.c ***
+void	read_file_map(char *file, t_map *cub3d);
 // *** Parssing/Map_Init.c ***
 void	struct_init(t_map *cub);
 void	initialize_map_line(char *line, t_map *cub, int row);
@@ -85,7 +86,5 @@ void	left_check(char *line);
 void	surrounded_check(t_map *cub3d);
 void	line_check(char *line);
 void	map_check(char *line, t_map *cub3d);
-// *** Parssing/Read_Map_File.c ***
-void	read_file_map(char *file, t_map *cub3d);
 
 #endif

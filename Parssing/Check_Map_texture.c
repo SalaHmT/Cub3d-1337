@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:24:26 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/14 01:58:34 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/14 22:18:09 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ void	texture_check(char *line, t_map *cub3d)
 		texture = ft_split(tmp, ' ');
 	if (count_string_array(texture) != 2)
 		p_error("Error : texture format is wrong :(\n");
-	// printf("texture[0] = %s\n", texture[0]);
-	// printf("texture[1] = %s\n", texture[1]);
 	if (access(texture[1], F_OK) == -1)
 	{
 		printf("Error : texture file not found :(\n");
@@ -123,5 +121,3 @@ void	texture_color_check(t_map *cub3d, char *line)
 	else
 		p_error("Error : Wrong format :(\n");
 }
-
-

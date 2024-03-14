@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:29:47 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/08 13:47:54 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/14 23:26:30 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int ft_strlen_c(const char *s)
 {
 	int i = 0;
-	for (; s[i]; i++)
-		;
-	return i;
+	while (s[i] != '\0')
+        i++;
+	return (i);
 }
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
