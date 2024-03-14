@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Map_Dependencies.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: osabir <osabir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 21:44:32 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/08 10:58:15 by osabir           ###   ########.fr       */
+/*   Updated: 2024/03/14 02:04:57 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char	*space_skip(char *ln)
 void	p_error(char *str)
 {
 	write(2, str, ft_strlen(str));
-	write(2, "\n", 1);
 	exit(0);
 }
 

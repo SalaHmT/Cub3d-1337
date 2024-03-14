@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:15:13 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/11 12:37:19 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/14 01:36:55 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ typedef struct s_map
 	int		f;// Floor color
 	int		map_x;// Map width
 	int		map_y;// Map height
+	int		player_y; // Player position 
+	int		player_x; // Player position
 	char	pos_player;// Player position
 }				t_map;
 
@@ -42,8 +44,6 @@ char	*get_next_line(int fd);
 char	*ft_re(char *str);
 char	*ft_get_ln(int fd, char *str);
 char	*read_ln(char *str);
-
-
 // *** libft functions ***
 char	**ft_split(const char *str, char c);
 int		ft_strlen(char *s);

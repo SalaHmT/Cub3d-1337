@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 21:18:14 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/08 11:42:01 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/12 14:32:02 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ int	ft_strlen(char *s)
 	if (!s)
 		return (0);
 	while (s[i] != '\0')
-	{
 		i++;
-	}
 	return (i);
 }

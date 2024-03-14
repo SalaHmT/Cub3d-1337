@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:03:38 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/11 12:19:15 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/13 22:21:55 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ void	right_check(char *line)
 		i++;
 	i--;
 	while (line[i] == ' ')
-	{
-		line[i] = '2';
 		i--;
-	}
 	if (line[i] != '1')
 		p_error("Error: Map not surrounded by walls :(\n");
 }
@@ -39,10 +36,7 @@ void	left_check(char *line)
 
 	i = 0;
 	while (line[i] == ' ')
-	{
-		line[i] = '2';
 		i++;
-	}
 	if (line[i] != '1' || line[i] == '\0' || line[i] == '\n')
 		p_error("Error: Map not surrounded by walls :(\n");
 }
@@ -64,7 +58,7 @@ void	line_check(char *line)
 		if (line[i] != '0' && line[i] != '1' && line[i] != '2'
 			&& line[i] != 'N' && line[i] != 'S' && line[i] != 'E'
 			&& line[i] != 'W' && line[i] != ' ')
-			p_error("Error: Wrong character in the map :(\n");
+			p_error("Error: Wrong character in the map :(");
 		i++;
 	}
 }
@@ -74,11 +68,13 @@ void	surrounded_check(t_map *cub3d)
 	int	i;
 	int	j;
 
-	i = 0;
-	while (i < cub3d->map_y)
+	i = -1;
+	while (++i < cub3d->map_y)
 	{
 		j = 0;
-		while (j < cub3d->map_x && cub3d->map[i][j] != '\0')
+		while (j < cub3d->map_x && cub3d->map[i][j++] != '\0'
+			&& cub3d->map[i][j] != '\n' && cub3d->map[i][j + 1] != '\0'
+			&& cub3d->map[i][j + 1] != '\n')
 		{
 			if (cub3d->map[i][j] == ' ')
 			{
@@ -91,9 +87,7 @@ void	surrounded_check(t_map *cub3d)
 				if (cub3d->map[i][j + 1] == '0')
 					p_error("Error: Map not surrounded by walls :(\n");
 			}
-			j++;
 		}
-		i++;
 	}
 }
 

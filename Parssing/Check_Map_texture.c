@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:24:26 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/11 12:28:52 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/14 01:58:34 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,27 @@ void	texture_init(t_map *cub3d, char *line, char *texture)
 			p_error("Error: EA texture already defined :(\n");
 		cub3d->ea = duplicate_string(texture);
 	}
+}
+
+char	*remove_leading_and_trailing_spaces(char *line)
+{
+	int		i;
+	int		j;
+	int		k;
+	char	*tmp;
+
+	i = 0;
+	j = ft_strlen(line) - 2;
+	while (line[i] == ' ' || line[i] == '\t')
+		i++;
+	while (line[j] == ' ' || line[j] == '\t')
+		j--;
+	tmp = malloc(sizeof(char) * (j - i + 2));
+	k = 0;
+	while (i <= j && line[i] != '\n')
+		tmp[k++] = line[i++];
+	tmp[k] = '\0';
+	return (tmp);
 }
 
 void	texture_check(char *line, t_map *cub3d)
@@ -103,23 +124,4 @@ void	texture_color_check(t_map *cub3d, char *line)
 		p_error("Error : Wrong format :(\n");
 }
 
-char	*remove_leading_and_trailing_spaces(char *line)
-{
-	int		i;
-	int		j;
-	int		k;
-	char	*tmp;
 
-	i = 0;
-	j = ft_strlen(line) - 2;
-	while (line[i] == ' ' || line[i] == '\t')
-		i++;
-	while (line[j] == ' ' || line[j] == '\t')
-		j--;
-	tmp = malloc(sizeof(char) * (j - i + 2));
-	k = 0;
-	while (i <= j && line[i] != '\n')
-		tmp[k++] = line[i++];
-	tmp[k] = '\0';
-	return (tmp);
-}

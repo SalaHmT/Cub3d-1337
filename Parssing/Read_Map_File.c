@@ -6,11 +6,24 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:28:00 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/11 12:39:07 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/14 02:08:35 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/Cub3d.h"
+
+//This function initializes the t_map structure with default values.
+void	struct_init(t_map *cub)
+{
+	cub->map = NULL;
+	cub->c = -1;
+	cub->f = -1;
+	cub->no = NULL;
+	cub->so = NULL;
+	cub->we = NULL;
+	cub->ea = NULL;
+	cub->pos_player = '0';
+}
 
 void	read_file_map(char *file, t_map *cub3d)
 {
@@ -21,7 +34,7 @@ void	read_file_map(char *file, t_map *cub3d)
 	struct_init(cub3d);
 	fd = open(file, O_RDWR);
 	if (fd == -1)
-		p_error("Error: Can't open file\n");
+		p_error("Error: Can't open file");
 	while (1)
 	{
 		line = get_next_line(fd);

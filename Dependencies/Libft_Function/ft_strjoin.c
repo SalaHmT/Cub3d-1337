@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:17:52 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/08 13:45:37 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/13 23:55:13 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strjoin(char *first_string, char *second_string)
 	}
 	while (second_string[j] != '\0')
 		result[i++] = second_string[j++];
-	result[i] = '\0';
+	result[ft_strlen(first_string) + ft_strlen(second_string)] = '\0';
 	free(first_string);
 	return (result);
 }
