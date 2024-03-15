@@ -1,12 +1,10 @@
-F 225,90,0
 EA Textures/ggg.xpm
-
 WE Textures//ggg.xpm
-
-C 1,126,00000
-
 SO Textures//ggg.xpm
 NO Textures//ggg.xpm
+
+C 1,126,00000
+F 225,90,0
 
 111111111111111
 100001000000001

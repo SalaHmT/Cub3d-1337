@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:07:29 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/14 22:19:15 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/15 22:18:26 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,20 @@
 
 char	*ft_get_ln(int fd, char *str)
 {
+	int		byte_read;
 	char	*buff;
-	int		b_read;
 
+	byte_read = 1;
 	buff = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
-	b_read = 1;
-	while (!ft_strchr(str, '\n') && b_read)
+	while (!ft_strchr(str, '\n') && byte_read)
 	{
-		b_read = read(fd, buff, BUFFER_SIZE);
-		if (b_read == -1)
+		byte_read = read(fd, buff, BUFFER_SIZE);
+		if (byte_read == -1)
 		{
 			free (buff);
 			return (0);
 		}
-		buff[b_read] = '\0';
+		buff[byte_read] = '\0';
 		str = ft_strjoin(str, buff);
 	}
 	free (buff);
@@ -61,12 +61,12 @@ char	*read_ln(char *str)
 	return (ln);
 }
 
-char	*ft_re(char *str)
+char	*remove_extracted_line(char *str)
 {
 	int		i;
 	int		j;
-	int		h;
-	char	*p;
+	int		remaining_length;
+	char	*new_str;
 
 	i = 0;
 	j = 0;
@@ -77,16 +77,16 @@ char	*ft_re(char *str)
 		free (str);
 		return (0);
 	}
-	h = (ft_strlen(str) - i);
-	p = (char *)malloc(sizeof(char) * (h + 1));
-	if (!p)
+	remaining_length = (ft_strlen(str) - i);
+	new_str = (char *)malloc(sizeof(char) * (remaining_length + 1));
+	if (!new_str)
 		return (0);
 	i++;
 	while (str[i])
-		p[j++] = str[i++];
-	p[j] = '\0';
+		new_str[j++] = str[i++];
+	new_str[j] = '\0';
 	free (str);
-	return (p);
+	return (new_str);
 }
 
 char	*get_next_line(int fd)
@@ -100,6 +100,6 @@ char	*get_next_line(int fd)
 	if (str == NULL)
 		return (NULL);
 	ln = read_ln(str);
-	str = ft_re(str);
+	str = remove_extracted_line(str);
 	return (ln);
 }
