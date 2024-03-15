@@ -6,7 +6,7 @@
 #    By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/27 21:08:21 by shamsate          #+#    #+#              #
-#    Updated: 2024/03/14 22:41:40 by shamsate         ###   ########.fr        #
+#    Updated: 2024/03/15 00:17:49 by shamsate         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLUDE = Include/Cub3d.h
 
 
 CFLAGS	= -Wall -Wextra -Werror
-CC = cc  -fsanitize=address
+CC = cc  
 RM = rm -Rf
 
 
