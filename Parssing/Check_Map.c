@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:03:38 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/14 23:24:47 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/16 22:17:15 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	surrounded_check(t_map *cub3d)
 void	map_check(char *line, t_map *cub3d)
 {
 	if (cub3d->c == -1 || cub3d->f == -1)
-		p_error("Error: Floor color not set :(\n");
+		p_error("Error: floor or ceiling color not set :(\n");
 	if (cub3d->no == NULL || cub3d->so == NULL
 		|| cub3d->we == NULL || cub3d->ea == NULL)
 		p_error("Error: Texture not set :(\n");
