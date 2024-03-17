@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:31:33 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/15 01:23:44 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/17 22:46:40 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	map_init(t_map *cub3d, char *file)
 
 	i = 0;
 	fd = open(file, O_RDONLY);
-	cub3d->map = malloc(sizeof(char *) * cub3d->map_y + 3);
+	cub3d->map = malloc(sizeof(char *) * cub3d->map_y + 1);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -85,7 +85,7 @@ void	map_init(t_map *cub3d, char *file)
 			p_error("Error: Map not surrounded by walls :(\n");
 			//this line for display the map
 			printf("%s\n", line);
-			//-------------------------
+			//-----------------------------------
 		free(line);
 	}
 	all_fun_check((cub3d), fd);

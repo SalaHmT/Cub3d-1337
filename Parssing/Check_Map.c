@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:03:38 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/16 22:17:15 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/17 23:25:51 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,13 @@ void	surrounded_check(t_map *cub3d)
 			if (cub3d->map[i][j] == ' ')
 			{
 				if (i != 0 && cub3d->map[i - 1][j] == '0')
-					p_error("Error: Map not surrounded by walls :(\n");
+					p_error("Error: Map not surrounded by walls1 :(\n");
 				if (i != cub3d->map_y - 1 && cub3d->map[i + 1][j] == '0')
-					p_error("Error: Map not surrounded by walls :(\n");
+					p_error("Error: Map not surrounded by walls2 :(\n");
 				if (j != 0 && cub3d->map[i][j - 1] == '0')
-					p_error("Error: Map not surrounded by walls :(\n");
+					p_error("Error: Map not surrounded by walls3 :(\n");
 				if (cub3d->map[i][j + 1] == '0')
-					p_error("Error: Map not surrounded by walls :(\n");
+					p_error("Error: Map not surrounded by walls4 :(\n");
 			}
 		}
 	}
