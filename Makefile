@@ -6,7 +6,7 @@
 #    By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/27 21:08:21 by shamsate          #+#    #+#              #
-#    Updated: 2024/03/15 01:47:36 by shamsate         ###   ########.fr        #
+#    Updated: 2024/03/19 00:06:38 by shamsate         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,23 +38,23 @@ OBJ		= $(FILES:=.o)
 all :   $(NAME)
 
 $(NAME): $(OBJ) $(INCLUDE)
-		@echo "  - Compilation Starting $(NAME)..\n"
+		@echo "Compilation Starting $(NAME) ..\n"
 		@ $(CC) -o $(NAME) $(OBJ)
-		@echo " - Execution ready..\n"
+		@echo ":) Execution ready . ✔️\n"
 
 %.o: %.c $(INCLUDE)
-	@echo "- Making Object file $(notdir $@) from source file $(notdir $<)...\n"
+	@echo "Making Object file $(notdir $@) from source file $(notdir $<)...\n"
 	@ $(CC) -Wall -Wextra -Werror  -c $< -o $@
 
 clean:
 	@ $(RM) $(OBJ)
-	@echo "\n -Removing object file ..\n"
-	@echo "-Object file Removed..\n"
+	@echo "\nRemoving object file ..\n"
+	@echo "Object file Removed . ✔️\n"
 
 fclean: clean
 	@ $(RM) $(NAME)
-	@echo "-Removing $(NAME) ..\n"
-	@echo " Removed..\n"
+	@echo "Removing $(NAME) ..\n"
+	@echo "Removed . ✔️\n"
 
 re: fclean clean
 
