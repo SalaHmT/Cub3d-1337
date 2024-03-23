@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:05:01 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/18 23:59:07 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/23 21:49:45 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	digit_color_check(char *str, t_map *cub3d, char type)
 	free_string_array(color);
 }
 
-//This function check_color is responsible for verifying
+//This function color_check is responsible for verifying
 // the validity of a color specification in a given line of a map file.
 
 void	color_check(char *line, char type, t_map *cub3d)

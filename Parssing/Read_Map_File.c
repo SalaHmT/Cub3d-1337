@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:28:00 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/14 22:17:56 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/23 21:43:44 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	read_file_map(char *file, t_map *cub3d)
 	struct_init(cub3d);
 	fd = open(file, O_RDWR);
 	if (fd == -1)
-		p_error("Error: Can't open file");
+		p_error("Error: Can't open file :(\n");
 	while (1)
 	{
 		line = get_next_line(fd);

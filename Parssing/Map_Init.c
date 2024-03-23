@@ -6,13 +6,13 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:31:33 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/19 01:18:14 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/23 21:50:41 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/Cub3d.h"
 
-//This function init_line initializes a specific row of a 2D array representing
+//This function initialize_map_line initializes a row of a 2D array representing
 //a map in a game (presumably Cub3D) with characters
 void	initialize_map_line(char *line, t_map *cub, int row)
 {
@@ -57,8 +57,8 @@ void	all_fun_check(t_map *cub3d, int fd)
 	surrounded_check((cub3d));
 }
 
-//The function init_map reads the map data from the specified file, validates
-//each line, and populates the 2D array representing the map (cub3d->my_map).
+//The function map_init reads the map data from the specified file, validates
+//each line, and populates the 2D array representing the map (cub3d->map).
 void	map_init(t_map *cub3d, char *file)
 {
 	int		fd;
