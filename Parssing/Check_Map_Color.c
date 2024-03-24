@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:05:01 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/23 21:49:45 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/11 12:11:12 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	digit_color_check(char *str, t_map *cub3d, char type)
 	free_string_array(color);
 }
 
-//This function color_check is responsible for verifying
+//This function check_color is responsible for verifying
 // the validity of a color specification in a given line of a map file.
 
 void	color_check(char *line, char type, t_map *cub3d)
@@ -65,7 +65,7 @@ void	color_check(char *line, char type, t_map *cub3d)
 		i++;
 	}
 	if (j != 2)
-		p_error("Error:    More commas ',' 2 nedeed  in color :(\n");
+		p_error("Error:  commas is not 2 ',' in color :(\n");
 	digit_color_check(tmp + 1, cub3d, type);
 	free(tmp);
 	free_string_array(col);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Map_Init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:31:33 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/23 21:50:41 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/20 22:02:57 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/Cub3d.h"
 
-//This function initialize_map_line initializes a row of a 2D array representing
+//This function init_line initializes a specific row of a 2D array representing
 //a map in a game (presumably Cub3D) with characters
 void	initialize_map_line(char *line, t_map *cub, int row)
 {
@@ -57,8 +57,8 @@ void	all_fun_check(t_map *cub3d, int fd)
 	surrounded_check((cub3d));
 }
 
-//The function map_init reads the map data from the specified file, validates
-//each line, and populates the 2D array representing the map (cub3d->map).
+//The function init_map reads the map data from the specified file, validates
+//each line, and populates the 2D array representing the map (cub3d->my_map).
 void	map_init(t_map *cub3d, char *file)
 {
 	int		fd;
@@ -67,7 +67,7 @@ void	map_init(t_map *cub3d, char *file)
 
 	i = 0;
 	fd = open(file, O_RDONLY);
-	cub3d->map = malloc(sizeof(char *) * cub3d->map_y + 1);
+	cub3d->map = malloc(sizeof(char *) * cub3d->map_y + 3);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -84,8 +84,8 @@ void	map_init(t_map *cub3d, char *file)
 			space_skip(line)[0] == '\n') && i > 0)
 			p_error("Error: Map not surrounded by walls :(\n");
 			//this line for display the map
-			printf("%s\n", line);
-			//-----------------------------------
+			//printf("%s\n", line);
+			//-------------------------
 		free(line);
 	}
 	all_fun_check((cub3d), fd);
