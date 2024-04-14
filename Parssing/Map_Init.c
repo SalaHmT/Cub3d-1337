@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Map_Init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:31:33 by shamsate          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2024/04/14 12:12:36 by shamsate         ###   ########.fr       */
-=======
-/*   Updated: 2024/03/20 22:02:57 by zbendahh         ###   ########.fr       */
->>>>>>> b10567c01136b06cd4627b58ee4eea32a3c15d00
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +83,6 @@ void	map_init(t_map *cub3d, char *file)
 		else if ((space_skip(line)[0] == '\0' || \
 			space_skip(line)[0] == '\n') && i > 0)
 			p_error("Error: Map not surrounded by walls :(\n");
-<<<<<<< HEAD
-=======
-			//this line for display the map
-			//printf("%s\n", line);
-			//-------------------------
->>>>>>> b10567c01136b06cd4627b58ee4eea32a3c15d00
 		free(line);
 	}
 	all_fun_check((cub3d), fd);

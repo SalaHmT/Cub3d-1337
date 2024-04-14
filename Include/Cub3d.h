@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:15:13 by shamsate          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/04/14 12:11:48 by shamsate         ###   ########.fr       */
-=======
-/*   Updated: 2024/03/23 17:49:56 by zbendahh         ###   ########.fr       */
->>>>>>> b10567c01136b06cd4627b58ee4eea32a3c15d00
+/*   Updated: 2024/04/14 12:47:57 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +21,7 @@
 # include <stdlib.h>
 # include <mlx.h>
 # include <math.h>
-<<<<<<< HEAD
 # include <stdbool.h>
-=======
->>>>>>> b10567c01136b06cd4627b58ee4eea32a3c15d00
 
 // *** Get_Next_Line ***
 # ifndef BUFFER_SIZE
@@ -51,7 +44,6 @@
 
 #define FPS 30
 #define FRAME_TIME_LENGTH (1000 / FPS)
-
 typedef struct s_map
 {
 	char	**map; // 2D array to store the map
@@ -71,7 +63,6 @@ typedef struct s_map
 
 typedef struct s_mlx
 {
-<<<<<<< HEAD
     void    *mlx_ptr;
     void    *win_ptr;
     void    *img_ptr;
@@ -81,23 +72,12 @@ typedef struct s_mlx
     int     size_x;
     int     size_y;
 	int	    endian;
-=======
-    void	    *mlx_ptr;
-    void	    *win_ptr;
-    void	    *img_ptr;
-    char        *pixel_ptr;
-	char	    *data_addr;
-	int		    bits_per_pixel;
-	int		    line_length;
-	int		    endian;
->>>>>>> b10567c01136b06cd4627b58ee4eea32a3c15d00
 }   t_mlx;
 
 typedef struct s_rectangle
 {
     int		y;
     int		x;
-<<<<<<< HEAD
     int		color;
 }	t_rectangle;
 
@@ -107,32 +87,11 @@ typedef struct s_player
     float   y_player;
     float   player_rotation_angle;
     float   player_move_speed;
-=======
-    int		width;
-    int		height;
-    int		c_color;
-}	t_rectangle;
-
-typedef struct s_circle
-{
-    int y;
-    int x;
-    int radius;
-    int c_color;
-}	t_circle;
-
-typedef struct s_player {
-    double  player_x;
-    double  player_y;
-    double  player_rotation_angle;
-    double  player_move_speed;
->>>>>>> b10567c01136b06cd4627b58ee4eea32a3c15d00
     double  player_rotation_speed;
     int     walk_direction;
     int     turn_direction;
 }   t_player;
 
-<<<<<<< HEAD
 typedef struct s_ray {
     float rayAngle;
     float wallHitX;
@@ -162,34 +121,6 @@ void    map_building(t_data *data);
 void    player_building(t_data *data);
 void    mlx_setup(t_data *data);
 void	img_pix_put(t_mlx *mlx, int x, int y, int color);
-=======
-typedef struct s_line
-{
-    int y_first;
-    int x_first;
-    int x_last;
-    int y_last;
-    int c_color;
-}   t_line;
-
-typedef struct s_data {
-    int         size;
-    int         width;
-    int         heigh;
-    t_mlx       mlx;
-    t_line      line;
-    t_circle    circle;
-    t_rectangle rectangle;
-    t_player    player;
-}   t_data;
-
-void    circle(t_data *data);
-void    line_dda(t_data *data);
-void    rectangle(t_data *data);
-void    map_building(t_data *data);
-void    mlx_setup(t_data *data);
-void    put_pixel(t_mlx *mlx, int x, int y, int color);
->>>>>>> b10567c01136b06cd4627b58ee4eea32a3c15d00
 // *** Get_Next_Line ***
 char	*get_next_line(int fd);
 char	*remove_extracted_line(char *str);
