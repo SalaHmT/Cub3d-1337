@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Check_Map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:03:38 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/19 01:20:05 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/03/26 12:21:28 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	line_check(char *line)
 	right_check(line);
 	while (line[i] != '\0' && line[i] != '\n')
 	{
-		if (line[i] != '1' && line[i] != '0'
+		if (line[i] != '1' && line[i] != '0' && line[i] != '2'
 			&& line[i] != 'W' && line[i] != 'E' && line[i] != 'S'
 			&& line[i] != 'N' && line[i] != ' ')
 			p_error("Error : Wrong character in the map");
@@ -100,5 +100,5 @@ void	map_check(char *line, t_map *cub3d)
 		p_error("Error: Texture not set :(\n");
 	cub3d->map_y += 1;
 	if (ft_strlen(line) - 1 > cub3d->map_x)
-		cub3d->map_x = ft_strlen(line);
+		cub3d->map_x = ft_strlen(line) - 1;
 }
