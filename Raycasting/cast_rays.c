@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cast_rays.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 05:44:23 by zbendahh          #+#    #+#             */
-/*   Updated: 2024/04/17 07:23:43 by zbendahh         ###   ########.fr       */
+/*   Updated: 2024/04/17 12:23:34 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ void	horizontal(t_data *data, float ray_angle)
 		data->cast_rays.x_step *= 1;
 	data->cast_rays.nextHorzTouchX = data->cast_rays.x_intercept;
 	data->cast_rays.nextHorzTouchY = data->cast_rays.y_intercept;
-	horizontal_while(data);
+	horizontal_while_part1(data);
+	horizontal_while_part2(data);
 }
 
 void	vertical(t_data *data, float ray_angle)
@@ -59,7 +60,8 @@ void	vertical(t_data *data, float ray_angle)
 		data->cast_rays.y_step *= 1;
 	data->cast_rays.nextVertTouchX = data->cast_rays.x_intercept;
 	data->cast_rays.nextVertTouchY = data->cast_rays.y_intercept;
-	vertical_while(data);
+	vertical_while_part1(data);
+	vertical_while_part2(data);
 }
 
 void	cast_ray(t_data *data, float ray_angle, int index)

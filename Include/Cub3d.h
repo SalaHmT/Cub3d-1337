@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:15:13 by shamsate          #+#    #+#             */
-/*   Updated: 2024/04/17 11:09:24 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/04/17 12:23:08 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,8 +155,10 @@ typedef struct s_data
 
 float	normal_angle(float ray_angle);
 void    init_var_rays(t_data *data, float ray_angle, int index);
-void    horizontal_while(t_data *data);
-void    vertical_while(t_data *data);
+void    horizontal_while_part1(t_data *data);
+void    horizontal_while_part2(t_data *data);
+void    vertical_while_part1(t_data *data);
+void    vertical_while_part2(t_data *data);
 
 void    horizontal(t_data *data, float ray_angle);
 void    vertical(t_data *data, float ray_angle);
