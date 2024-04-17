@@ -6,24 +6,37 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 21:08:18 by shamsate          #+#    #+#             */
-/*   Updated: 2024/04/14 12:36:34 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/04/17 11:20:17 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Include/Cub3d.h"
 
-// x--> --- y--> |
-void	init_data_first(t_data *data, int map_x, int map_y)
+void	init_var_mlx(t_data *data)
+{
+	data->mlx.mlx_ptr = NULL;
+	data->mlx.win_ptr = NULL;
+	data->mlx.img_ptr = NULL;
+	data->mlx.addr_ptr = NULL;
+	data->mlx.addr_ptr = NULL;
+	data->mlx.bits_per_pixel = 0;
+	data->mlx.line_length = 0;
+	data->mlx.endian = 0;
+	data->mlx.img_x = 0;
+	data->mlx.img_y = 0;
+	data->mlx.win_size_x = (data->map.map_x * TILE_SIZE);
+	data->mlx.win_size_y = (data->map.map_y * TILE_SIZE);
+}
+
+void	init_var_player(t_data *data)
 {
 	data->player.turn_direction = 0;
 	data->player.walk_direction = 0;
 	data->player.x_player = (data->map.player_x * TILE_SIZE);
 	data->player.y_player = (data->map.player_y * TILE_SIZE);
-	data->player.player_rotation_speed = (2 * (M_PI / 180));
-	data->player.player_rotation_angle = (180);
+	data->player.player_rotation_speed = (3 * (M_PI / 180));
+	data->player.player_rotation_angle = 180;
 	data->player.player_move_speed = 3.0;
-	data->mlx.size_x = (map_x * TILE_SIZE);
-	data->mlx.size_y = (map_y * TILE_SIZE);
 }
 
 int	main(int ac, char **av)
@@ -39,7 +52,8 @@ int	main(int ac, char **av)
 	data->map.map_y = 0;
 	extension_check(av[1]);
 	read_file_map(av[1], &data->map);
-	init_data_first(data, data->map.map_x, data->map.map_y);
+	init_var_player(data);
+	init_var_mlx(data);
 	mlx_setup(data);
 	return (0);
 }
