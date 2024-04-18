@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 05:44:23 by zbendahh          #+#    #+#             */
-/*   Updated: 2024/04/17 12:23:34 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/04/18 11:21:18 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,25 +74,17 @@ void	cast_ray(t_data *data, float ray_angle, int index)
 	data->cast_rays.vertWallHitX = 0;
 	data->cast_rays.vertWallHitY = 0;
 	data->cast_rays.vertWallContent = 0;
-	data->cast_rays.isRayFacingDown = ray_angle > 0 && ray_angle < PI;
+	data->cast_rays.isRayFacingDown = (ray_angle > 0 && ray_angle < PI);
 	data->cast_rays.isRayFacingUp = !data->cast_rays.isRayFacingDown;
-	data->cast_rays.isRayFacingRight = ray_angle < 0.5 * PI || \
-		ray_angle > 1.5 * PI;
+	data->cast_rays.isRayFacingRight = (ray_angle < 0.5 * PI \
+		|| ray_angle > 1.5 * PI);
 	data->cast_rays.isRayFacingLeft = !data->cast_rays.isRayFacingRight;
 	horizontal(data, ray_angle);
 	vertical(data, ray_angle);
-	data->cast_rays.horzHitDistance = data->cast_rays.foundHorzWallHit
-		? sqrt((data->cast_rays.horzWallHitX - data->player.x_player) * \
-			(data->cast_rays.horzWallHitX - data->player.x_player) + \
-			(data->cast_rays.horzWallHitY - data->player.y_player) * \
-			(data->cast_rays.horzWallHitY - data->player.y_player))
-		: FLT_MAX;
-	data->cast_rays.vertHitDistance = data->cast_rays.foundVertWallHit
-		? sqrt((data->cast_rays.vertWallHitX - data->player.x_player) * \
-			(data->cast_rays.vertWallHitX - data->player.x_player) + \
-			(data->cast_rays.vertWallHitY - data->player.y_player) * \
-			(data->cast_rays.vertWallHitY - data->player.y_player))
-		: FLT_MAX;
+	calculate_horizontal_distance(data, data->player.x_player, \
+		data->player.y_player);
+	calculate_vertical_distance(data, data->player.x_player, \
+		data->player.y_player);
 	init_var_rays(data, ray_angle, index);
 }
 

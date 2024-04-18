@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:15:13 by shamsate          #+#    #+#             */
-/*   Updated: 2024/04/17 12:23:08 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/04/18 11:10:42 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,8 @@ void	move_player(t_data *data);
 float	normal_angle(float ray_angle);
 void    cast_ray(t_data *data, float rayAngle, int stripId);
 void    cast_all_rays(t_data *data);
+void    calculate_vertical_distance(t_data *data, float playerX, float playerY);
+void    calculate_horizontal_distance(t_data *data, float playerX, float playerY);
 void    clear_img(t_data *data);
 void	mlx_setup(t_data *data);
 void	img_pixel_put(t_mlx *mlx, int x, int y, int color);

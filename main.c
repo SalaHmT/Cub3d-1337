@@ -6,7 +6,7 @@
 /*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 21:08:18 by shamsate          #+#    #+#             */
-/*   Updated: 2024/04/17 11:20:17 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/04/18 10:50:14 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	init_var_mlx(t_data *data)
 	data->mlx.mlx_ptr = NULL;
 	data->mlx.win_ptr = NULL;
 	data->mlx.img_ptr = NULL;
-	data->mlx.addr_ptr = NULL;
 	data->mlx.addr_ptr = NULL;
 	data->mlx.bits_per_pixel = 0;
 	data->mlx.line_length = 0;

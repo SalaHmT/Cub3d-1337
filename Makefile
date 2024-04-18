@@ -17,6 +17,7 @@ FILES = main \
         Raycasting/setup Raycasting/pixel Raycasting/clear \
 		Raycasting/player Raycasting/cast_3d Raycasting/keycode Raycasting/cast_rays Raycasting/cast_rays_utils \
 		Raycasting/cast_3d_2 Raycasting/cast_rays_utils_2 Raycasting/cast_rays_utils_3 \
+		Raycasting/cast_rays_2 \
 
 SRC = $(FILES:=.c)
 OBJ = $(addprefix $(DIROBJ)/, $(FILES:=.o))
