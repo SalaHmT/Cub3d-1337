@@ -2,22 +2,34 @@ NAME = cub3d
 INCLUDE = Include/Cub3d.h
 CFLAGS = -Wall -Wextra -Werror -g
 DIROBJ = .o
-MLX = -lmlx -framework OpenGL -framework AppKit
+MLX =  -framework Cocoa -framework OpenGL -framework IOKit
 CC = cc -fsanitize=address
 RM = rm -Rf
 FILES = main \
-        Dependencies/Get_Next_Line/Get_Next_Line Dependencies/Libft_Function/duplicate_string \
+        Dependencies/Get_Next_Line/Get_Next_Line \
+		Dependencies/Libft_Function/duplicate_string \
         Dependencies/Libft_Function/ft_isdigit \
-        Dependencies/Libft_Function/ft_strchr Dependencies/Libft_Function/ft_strlen \
-        Dependencies/Libft_Function/ft_split Dependencies/Libft_Function/ft_strjoin \
-        Parssing/Check_Map_Color Parssing/Check_Map_texture Parssing/Check_Map \
-        Parssing/Map_Dependencies  Parssing/Player_Init \
-        Parssing/Map_Init Parssing/Read_Map_File Dependencies/Libft_Function/ft_strlcpy \
-        Dependencies/Libft_Function/ft_atoi \
-        Raycasting/setup Raycasting/pixel Raycasting/clear \
-		Raycasting/player Raycasting/cast_3d Raycasting/keycode Raycasting/cast_rays Raycasting/cast_rays_utils \
-		Raycasting/cast_3d_2 Raycasting/cast_rays_utils_2 Raycasting/cast_rays_utils_3 \
-		Raycasting/cast_rays_2 \
+		Dependencies/Libft_Function/ft_atoi\
+        Dependencies/Libft_Function/ft_strchr \
+		Dependencies/Libft_Function/ft_strlen \
+        Dependencies/Libft_Function/ft_split \
+		Dependencies/Libft_Function/ft_strjoin \
+		Dependencies/Libft_Function/ft_strlcpy \
+        Parssing/Check_Map_Color \
+		Parssing/Check_Map_texture \
+		Parssing/Check_Map \
+        Parssing/Map_Dependencies \
+		Parssing/Player_Init \
+		Raycasting/clear\
+        Parssing/Map_Init \
+		Parssing/Read_Map_File \
+        Raycasting/setup \
+		Raycasting/player \
+		Raycasting/cast_3d \
+		Raycasting/keycode \
+		Raycasting/cast_rays \
+		Raycasting/vertical_cast \
+		Raycasting/horizontal_cast\
 
 SRC = $(FILES:=.c)
 OBJ = $(addprefix $(DIROBJ)/, $(FILES:=.o))
@@ -26,7 +38,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ) $(INCLUDE)
 	@echo "- Compilation Starting $(NAME)..\n"
-	@$(CC) -o $(NAME) $(OBJ) $(MLX)
+	@$(CC) MLX42/build/libmlx42.a -lglfw -L"/Users/shamsate/.brew/Cellar/glfw/3.4/lib" -I"/Users/shamsate/.brew/Cellar/glfw/3.4/include/GLFW" -o $(NAME) $(OBJ) $(MLX)
 	@echo "- Execution ready..\n"
 
 $(DIROBJ)/%.o : %.c $(INCLUDE)

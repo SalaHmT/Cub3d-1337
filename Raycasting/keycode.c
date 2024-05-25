@@ -3,73 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   keycode.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: shamsate <shamsate@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/15 05:44:35 by zbendahh          #+#    #+#             */
-/*   Updated: 2024/04/17 10:36:55 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/24 22:44:05 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Include/Cub3d.h"
 
-int	pressed(int keycode, t_data *data)
+void	hook(t_data *data)
 {
-	if (keycode == ROTATION_FORWARD || \
-		keycode == ROTATION_FORWARD_E)
-		data->player.walk_direction = +1;
-	else if (keycode == ROTATION_BACK || \
-		keycode == ROTATION_BACK_D)
+	if (mlx_is_key_down(data->mlx.mlx_ptr, MLX_KEY_RIGHT) || \
+		mlx_is_key_down(data->mlx.mlx_ptr, MLX_KEY_LEFT))
+		data->player.angle = (PI / 2);
+	else
+		data->player.angle = 0.0;
+	if (mlx_is_key_down(data->mlx.mlx_ptr, MLX_KEY_LEFT))
+		data->player.walk_direction = 1;
+	if (mlx_is_key_down(data->mlx.mlx_ptr, MLX_KEY_RIGHT))
 		data->player.walk_direction = -1;
-	else if (keycode == ROTATION_RIGHT || \
-		keycode == ROTATION_RIGHT_F)
-		data->player.turn_direction = +1;
-	else if (keycode == ROTATION_LEFT || \
-		keycode == ROTATION_LEFT_S)
+	if (mlx_is_key_down(data->mlx.mlx_ptr, MLX_KEY_W) || \
+		mlx_is_key_down(data->mlx.mlx_ptr, MLX_KEY_UP))
+		data->player.walk_direction = 1;
+	if (mlx_is_key_down(data->mlx.mlx_ptr, MLX_KEY_S) || \
+		mlx_is_key_down(data->mlx.mlx_ptr, MLX_KEY_DOWN))
+		data->player.walk_direction = -1;
+	if (mlx_is_key_down(data->mlx.mlx_ptr, MLX_KEY_D))
+		data->player.turn_direction = 1;
+	if (mlx_is_key_down(data->mlx.mlx_ptr, MLX_KEY_A))
 		data->player.turn_direction = -1;
-	else if (keycode == EXIT)
+	if (mlx_is_key_down(data->mlx.mlx_ptr, MLX_KEY_ESCAPE))
 		exit(1);
-	return (0);
 }
 
-int	released(int keycode, t_data *data)
+void	mouse(t_data *data)
 {
-	if (keycode == ROTATION_FORWARD || \
-		keycode == ROTATION_BACK || \
-		keycode == ROTATION_FORWARD_E || \
-		keycode == ROTATION_BACK_D)
-		data->player.walk_direction = 0;
-	else if (keycode == ROTATION_RIGHT || \
-		keycode == ROTATION_LEFT || \
-		keycode == ROTATION_RIGHT_F || \
-		keycode == ROTATION_LEFT_S)
-		data->player.turn_direction = 0;
-	return (0);
-}
+	int	y;
+	int	x;
 
-int	mousemove(int x, int y, t_data *data)
-{
-	(void)y;
-	data->player.player_rotation_angle -= \
-		((data->player.prev_x - x) / (float)data->mlx.win_size_x) * PI;
+	mlx_get_mouse_pos(data->mlx.mlx_ptr, &x, &y);
+	data->player.player_rotation_angle += \
+		((x - data->player.prev_x) / (float)data->mlx.win_x) * PI;
 	data->player.prev_x = x;
-	return (0);
 }
 
-int	destroy(void)
+void	reset(t_data *data)
 {
-	exit(1);
+	data->player.walk_direction = 0;
+	data->player.turn_direction = 0;
 }
 
-int	update(t_data *data)
+void	update(t_data *data)
 {
-	clear_img(data);
-	cast_all_rays(data);
-	move_player(data);
-	cast_3d(data);
-	mlx_put_image_to_window(data->mlx.mlx_ptr, \
-		data->mlx.win_ptr, \
-		data->mlx.img_ptr, \
-		data->mlx.img_x, \
-		data->mlx.img_y);
-	return (0);
+	clear(data);
+	mouse(data);
+	hook(data);
+	player(data);
+	reset(data);
+	cast(data);
+	texture(data);
 }

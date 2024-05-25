@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Map_Init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shamsate <shamsate@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:31:33 by shamsate          #+#    #+#             */
-/*   Updated: 2024/04/15 07:31:27 by zbendahh         ###   ########.fr       */
+/*   Updated: 2024/05/25 17:53:08 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,20 @@ void	initialize_map_line(char *line, t_map *cub, int row)
 {
 	int	column;
 
+	cub->map[row] = malloc(sizeof(char) * (cub->map_x + 1));
+	if (cub->map[row] == NULL)
+	{
+		p_error("Error: Memory allocation failed :(\n");
+		return ;
+	}
 	column = 0;
-	cub->map[row] = malloc(sizeof(char) * cub->map_x + 1);
-	while (line[column] != '\0' && line[column] != '\n')
+	while (line[column] != '\0' && line[column] != '\n' && column < cub->map_x)
 	{
 		cub->map[row][column] = line[column];
 		column++;
 	}
 	while (column < cub->map_x)
-	{
-		cub->map[row][column] = ' ';
-		column++;
-	}
+		cub->map[row][column++] = ' ';
 	cub->map[row][column] = '\0';
 }
 
@@ -67,7 +69,7 @@ void	map_init(t_map *cub3d, char *file)
 
 	i = 0;
 	fd = open(file, O_RDONLY);
-	cub3d->map = malloc(sizeof(char *) * cub3d->map_y + 3);
+	cub3d->map = malloc(sizeof(char *) * cub3d->map_y + 1);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -79,6 +81,7 @@ void	map_init(t_map *cub3d, char *file)
 		{
 			line_check(line);
 			initialize_map_line(line, cub3d, i++);
+			printf("%s\n", line);
 		}
 		else if ((space_skip(line)[0] == '\0' || \
 			space_skip(line)[0] == '\n') && i > 0)
