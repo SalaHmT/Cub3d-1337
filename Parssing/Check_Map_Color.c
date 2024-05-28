@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Check_Map_Color.c                                  :+:      :+:    :+:   */
+/*   check_map_color.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:05:01 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/11 12:11:12 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/24 03:27:56 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Include/Cub3d.h"
+#include "parssing.h"
 
 void	digit_color_check(char *str, t_map *cub3d, char type)
 {

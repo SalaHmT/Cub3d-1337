@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:26:47 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 11:26:02 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/24 03:11:39 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Include/Cub3d.h"
+#include "libft.h"
 
 int	ft_atoi(char *str)
 {

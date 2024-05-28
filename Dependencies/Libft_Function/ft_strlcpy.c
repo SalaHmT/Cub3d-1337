@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 11:29:47 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/15 01:22:37 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/24 03:11:59 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Include/Cub3d.h"
+#include "libft.h"
 
 int	ft_strlen_c(const char *s)
 {

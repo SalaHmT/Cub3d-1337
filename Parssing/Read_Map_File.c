@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Read_Map_File.c                                    :+:      :+:    :+:   */
+/*   read_map_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:28:00 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/14 22:17:56 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/24 03:23:48 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Include/Cub3d.h"
+#include "parssing.h"
 
 //This function initializes the t_map structure with default values.
 void	struct_init(t_map *cub)

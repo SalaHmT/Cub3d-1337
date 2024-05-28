@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:36:18 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/07 11:26:05 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/24 03:11:45 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Include/Cub3d.h"
+#include "libft.h"
 
 int	ft_isdigit(char *str)
 {

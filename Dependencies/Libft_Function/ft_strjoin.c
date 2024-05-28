@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 17:17:52 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/13 23:55:13 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/24 03:11:56 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Include/Cub3d.h"
+#include "libft.h"
 
 char	*ft_strjoin(char *first_string, char *second_string)
 {

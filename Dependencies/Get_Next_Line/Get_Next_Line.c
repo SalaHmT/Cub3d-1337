@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Get_Next_Line.c                                    :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 22:07:29 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/15 22:18:26 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/24 03:49:41 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../Include/Cub3d.h"
+#include "get_next_line.h"
+#include "../libft_function/libft.h"
 
 char	*ft_get_ln(int fd, char *str)
 {

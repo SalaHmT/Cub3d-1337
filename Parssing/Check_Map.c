@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Check_Map.c                                        :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate <shamsate@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 14:03:38 by shamsate          #+#    #+#             */
-/*   Updated: 2024/05/24 20:24:08 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/24 04:04:27 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Include/Cub3d.h"
+#include "parssing.h"
 
 void	line_check(char *line)
 {
@@ -21,7 +21,7 @@ void	line_check(char *line)
 	right_check(line);
 	while (line[i] != '\0' && line[i] != '\n')
 	{
-		if (line[i] != '1' && line[i] != '0'
+		if (line[i] != '1' && line[i] != '0' && line[i] != '2'
 			&& line[i] != 'W' && line[i] != 'E' && line[i] != 'S'
 			&& line[i] != 'N' && line[i] != ' ')
 			p_error("Error : Wrong character in the map");

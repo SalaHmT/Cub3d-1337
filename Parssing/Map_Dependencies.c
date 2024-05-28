@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Map_Dependencies.c                                 :+:      :+:    :+:   */
+/*   map_dependencies.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: shamsate <shamsate@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 21:44:32 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/14 02:04:57 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/26 22:41:15 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Include/Cub3d.h"
+#include "parssing.h"
 
 char	*space_skip(char *ln)
 {

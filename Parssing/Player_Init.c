@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Player_Init.c                                      :+:      :+:    :+:   */
+/*   player_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:23:04 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/14 02:36:12 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/24 03:23:40 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Include/Cub3d.h"
+#include "parssing.h"
 
 //searching for the player symbol ('N', 'S', 'E', or 'W'). It sets the player's
 //position and orientation if found and checks if more than one player

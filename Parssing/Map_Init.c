@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Map_Init.c                                         :+:      :+:    :+:   */
+/*   map_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shamsate <shamsate@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:31:33 by shamsate          #+#    #+#             */
-/*   Updated: 2024/05/25 17:53:08 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/26 22:56:05 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Include/Cub3d.h"
+#include "parssing.h"
 
 //This function init_line initializes a specific row of a 2D array representing
 //a map in a game (presumably Cub3D) with characters
@@ -69,7 +69,7 @@ void	map_init(t_map *cub3d, char *file)
 
 	i = 0;
 	fd = open(file, O_RDONLY);
-	cub3d->map = malloc(sizeof(char *) * cub3d->map_y + 1);
+	cub3d->map = malloc(sizeof(char *) * cub3d->map_y + 3);
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -81,7 +81,6 @@ void	map_init(t_map *cub3d, char *file)
 		{
 			line_check(line);
 			initialize_map_line(line, cub3d, i++);
-			printf("%s\n", line);
 		}
 		else if ((space_skip(line)[0] == '\0' || \
 			space_skip(line)[0] == '\n') && i > 0)

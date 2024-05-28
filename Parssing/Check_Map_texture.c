@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Check_Map_texture.c                                :+:      :+:    :+:   */
+/*   check_map_texture.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate < shamsate@student.42.fr>         +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:24:26 by shamsate          #+#    #+#             */
-/*   Updated: 2024/03/14 22:18:09 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/24 03:23:32 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Include/Cub3d.h"
+#include "parssing.h"
 
 void	extension_check(char *str)
 {
