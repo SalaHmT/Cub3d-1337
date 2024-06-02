@@ -6,28 +6,13 @@
 /*   By: shamsate <shamsate@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 20:49:03 by zbendahh          #+#    #+#             */
-/*   Updated: 2024/05/28 02:35:24 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/06/02 15:27:13 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycasting.h"
-void	floor_and_ceiling(t_data *data, int pixel_i)
-{
-	int	pixel_j;
 
-	pixel_j = 0;
-	while (pixel_j < data->cast_3d.wallTopPixel)
-		mlx_put_pixel(data->mlx.img_ptr, \
-			pixel_i, \
-			pixel_j++, \
-			get_rgba(55, 140, 231, 255));
-	pixel_j = data->cast_3d.wallBottomPixel;
-	while (pixel_j < data->mlx.y_win)
-		mlx_put_pixel(data->mlx.img_ptr, \
-			pixel_i, \
-			pixel_j++, \
-			get_rgba(150, 150, 150, 255));
-}
+
 
 void wall(t_data *data, int pixel_i)
 {
@@ -89,7 +74,22 @@ void	cast_3d_init(t_data *data, int pixel_i)
 		data->cast_3d.wallBottomPixel = data->cast_3d.wallBottomPixel;
 }
 
+void	floor_and_ceiling(t_data *data, int pixel_i)
+{
+	int	pixel_j;
 
+	pixel_j = 0;
+	while (pixel_j < data->cast_3d.wallTopPixel)
+		mlx_put_pixel(data->mlx.img_ptr, \
+			pixel_i, \
+			pixel_j++, get_rgba(55, 140, 231, 255));
+	pixel_j = data->cast_3d.wallBottomPixel;
+	while (pixel_j < data->mlx.y_win)
+		mlx_put_pixel(data->mlx.img_ptr, \
+			pixel_i, \
+			pixel_j++, \
+			get_rgba(150, 150, 150, 255));
+}
 void	cast__3d(t_data *data)
 {
 	int	pixel_i;
@@ -104,3 +104,5 @@ void	cast__3d(t_data *data)
 		pixel_i++;
 	}
 }
+
+

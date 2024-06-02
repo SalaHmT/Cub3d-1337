@@ -1,8 +1,8 @@
-NAME = cub3d
+NAME = cub3D
 CFLAGS = -Wall -Wextra -Werror -g
 DIROBJ = .o
 MLX =  -framework Cocoa -framework OpenGL -framework IOKit
-CC = cc 
+CC = cc  -fsanitize=address
 RM = rm -Rf
 FILES = main \
         dependencies/get_next_line/get_next_line \
