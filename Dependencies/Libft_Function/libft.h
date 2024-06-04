@@ -1,9 +1,21 @@
-#ifndef LIBFT_H
-#define LIBFT_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libft.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: shamsate <shamsate@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/04 15:03:05 by shamsate          #+#    #+#             */
+/*   Updated: 2024/06/04 15:03:23 by shamsate         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+#ifndef LIBFT_H
+# define LIBFT_H
+
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 int		ft_atoi( char *str);
 int		ft_isdigit(char *str);

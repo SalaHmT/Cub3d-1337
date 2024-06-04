@@ -2,7 +2,7 @@ NAME = cub3d
 CFLAGS = -Wall -Wextra -Werror -g
 DIROBJ = .o
 MLX =  -framework Cocoa -framework OpenGL -framework IOKit
-CC = cc 
+CC = cc #-fsanitize=address
 RM = rm -Rf
 FILES = main \
         dependencies/get_next_line/get_next_line \
@@ -26,9 +26,10 @@ FILES = main \
 		raycasting/vertical \
 		raycasting/player \
 		raycasting/keycode \
-		raycasting/cast_3d \
+		raycasting/cast_to_3d \
 		raycasting/utils \
 		raycasting/setup
+	
 
 SRC = $(FILES:=.c)
 OBJ = $(addprefix $(DIROBJ)/, $(FILES:=.o))

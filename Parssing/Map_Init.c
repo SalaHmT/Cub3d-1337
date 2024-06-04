@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate <shamsate@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 00:31:33 by shamsate          #+#    #+#             */
-/*   Updated: 2024/05/26 22:56:05 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/24 04:00:15 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,18 @@ void	initialize_map_line(char *line, t_map *cub, int row)
 {
 	int	column;
 
-	cub->map[row] = malloc(sizeof(char) * (cub->map_x + 1));
-	if (cub->map[row] == NULL)
-	{
-		p_error("Error: Memory allocation failed :(\n");
-		return ;
-	}
 	column = 0;
-	while (line[column] != '\0' && line[column] != '\n' && column < cub->map_x)
+	cub->map[row] = malloc(sizeof(char) * cub->map_x + 1);
+	while (line[column] != '\0' && line[column] != '\n')
 	{
 		cub->map[row][column] = line[column];
 		column++;
 	}
 	while (column < cub->map_x)
-		cub->map[row][column++] = ' ';
+	{
+		cub->map[row][column] = ' ';
+		column++;
+	}
 	cub->map[row][column] = '\0';
 }
 

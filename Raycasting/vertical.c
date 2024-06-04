@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vertical.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate <shamsate@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/23 21:18:55 by zbendahh          #+#    #+#             */
-/*   Updated: 2024/05/27 20:55:10 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/06/04 10:00:04 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,19 @@ void	vertical_while(t_data *data)
 			data->cast.x_to_check = data->cast.next_vert_touch_x + (-1);
 		else
 			data->cast.x_to_check = data->cast.next_vert_touch_x + 0;
-		if (data->map.map[(int)data->cast.y_to_check / TILE_SIZE][(int)data->cast.x_to_check / TILE_SIZE] != 48 && data->map.map[(int)data->cast.y_to_check / TILE_SIZE][(int)data->cast.x_to_check / TILE_SIZE] != 83)
+		if (check_collisions(data, data->cast.x_to_check, \
+			data->cast.y_to_check) != 0)
 		{
 			data->cast.vert_wall_hit_x = data->cast.next_vert_touch_x;
-			data->cast.vert_wall_hit_y = \
-			data->cast.next_vert_touch_y;
-			data->cast.vert_wall_content = data->map.map[(int)floor(data->cast.y_to_check \
-				/ TILE_SIZE)][(int)floor(data->cast.x_to_check / TILE_SIZE)] - 48;
+			data->cast.vert_wall_hit_y = data->cast.next_vert_touch_y;
+			data->cast.vert_wall_content = data->map.map \
+				[(int)floor(data->cast.y_to_check / TILE_SIZE)] \
+				[(int)floor(data->cast.x_to_check / TILE_SIZE)] - 48;
 			data->cast.found_vert_wall_hit = 1;
-			break ;
+			return ;
 		}
-		else
-		{
-			data->cast.next_vert_touch_x += data->cast.x_step;
-			data->cast.next_vert_touch_y += data->cast.y_step;
-		}
+		data->cast.next_vert_touch_x += data->cast.x_step;
+		data->cast.next_vert_touch_y += data->cast.y_step;
 	}
 }
 
@@ -72,11 +70,10 @@ void	is_vertical(t_data *data, float ray_angle)
 	else if (!data->cast.is_ray_facing_right)
 		data->cast.x_intercept += 0;
 	data->cast.y_intercept = data->player.y + \
-		(data->cast.x_intercept - data->player.x) \
-		* tan(ray_angle);
+		(data->cast.x_intercept - data->player.x) * \
+		tan(ray_angle);
 	init_vertical_derction(data);
 	data->cast.next_vert_touch_x = data->cast.x_intercept;
 	data->cast.next_vert_touch_y = data->cast.y_intercept;
 	vertical_while(data);
-
 }
