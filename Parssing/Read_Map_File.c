@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   read_map_file.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shamsate <shamsate@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zbendahh <zbendahh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 17:28:00 by shamsate          #+#    #+#             */
-/*   Updated: 2024/06/02 15:50:05 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/05/24 03:23:48 by zbendahh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	read_file_map(char *file, t_map *cub3d)
 			break ;
 		line2 = space_skip(line);
 		texture_color_check(cub3d, line2);
-		printf("%s\n", line2);
 		free(line);
 	}
 	close(fd);
