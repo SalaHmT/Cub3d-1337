@@ -6,7 +6,7 @@
 /*   By: shamsate <shamsate@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:05:01 by shamsate          #+#    #+#             */
-/*   Updated: 2024/06/09 16:55:13 by shamsate         ###   ########.fr       */
+/*   Updated: 2024/06/09 18:16:42 by shamsate         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ void	process_rgb_and_set_color(char *tmp, char type, t_map *cub3d)
 
 void	color_check(char *line, char type, t_map *cub3d)
 {
-	char *tmp;
-	char **col;
+	char	*tmp;
+	char	**col;
 
 	parse_and_validate_color_line(line, &col, &tmp);
 	process_rgb_and_set_color(tmp, type, cub3d);
